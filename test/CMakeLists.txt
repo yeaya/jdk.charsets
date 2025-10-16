@@ -65,7 +65,7 @@ endif()
 
 jcpp_enable_bigobj(${JCPP_PROJECT_FULL_NAME}-test)
 
-install(TARGETS ${JCPP_PROJECT_FULL_NAME}-test DESTINATION "${JCPP_BIN_INSTALL_PATH}")
+install(TARGETS ${JCPP_PROJECT_FULL_NAME}-test DESTINATION "${JCPP_INSTALL_BIN_DIR}")
 
 add_test(NAME CharsetContainmentTest COMMAND $<TARGET_FILE:${JCPP_PROJECT_FULL_NAME}-test> CharsetContainmentTest)
 add_test(NAME CurrencyFormat COMMAND $<TARGET_FILE:${JCPP_PROJECT_FULL_NAME}-test> CurrencyFormat)
