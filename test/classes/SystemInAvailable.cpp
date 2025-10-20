@@ -42,6 +42,7 @@ void SystemInAvailable::init$() {
 }
 
 void SystemInAvailable::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, b, $new($bytes, 1024));
 	$init($System);
 	$nc($System::out)->print("Press <enter>: "_s);

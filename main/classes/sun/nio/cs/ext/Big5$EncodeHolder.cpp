@@ -70,6 +70,7 @@ void Big5$EncodeHolder::init$() {
 }
 
 void clinit$Big5$EncodeHolder($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(Big5$EncodeHolder::c2b, $new($chars, 25600));
 	$assignStatic(Big5$EncodeHolder::c2bIndex, $new($chars, 256));
 	{

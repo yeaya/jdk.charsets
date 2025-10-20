@@ -81,6 +81,7 @@ void Big5_Solaris$Holder::init$() {
 }
 
 void clinit$Big5_Solaris$Holder($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$init($Big5$DecodeHolder);
 		$assignStatic(Big5_Solaris$Holder::b2c, $cast($charArray2, $nc($Big5$DecodeHolder::b2c)->clone()));

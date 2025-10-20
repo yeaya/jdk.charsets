@@ -135,6 +135,7 @@ void ISO2022_JP$Decoder::implReset() {
 }
 
 $CoderResult* ISO2022_JP$Decoder::decodeArrayLoop($ByteBuffer* src, $CharBuffer* dst) {
+	$useLocalCurrentObjectStackCache();
 	int32_t inputSize = 0;
 	int32_t b1 = 0;
 	int32_t b2 = 0;
@@ -333,6 +334,7 @@ $CoderResult* ISO2022_JP$Decoder::decodeArrayLoop($ByteBuffer* src, $CharBuffer*
 }
 
 $CoderResult* ISO2022_JP$Decoder::decodeBufferLoop($ByteBuffer* src, $CharBuffer* dst) {
+	$useLocalCurrentObjectStackCache();
 	int32_t mark = $nc(src)->position();
 	int32_t b1 = 0;
 	int32_t b2 = 0;

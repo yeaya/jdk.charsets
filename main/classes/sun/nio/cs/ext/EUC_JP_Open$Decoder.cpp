@@ -93,6 +93,7 @@ char16_t EUC_JP_Open$Decoder::decodeDouble(int32_t byte1, int32_t byte2) {
 }
 
 void clinit$EUC_JP_Open$Decoder($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(EUC_JP_Open$Decoder::DEC0208_Solaris, $cast($DoubleByte$Decoder, $$new($JIS_X_0208_Solaris)->newDecoder()));
 	$assignStatic(EUC_JP_Open$Decoder::DEC0212_Solaris, $cast($DoubleByte$Decoder, $$new($JIS_X_0212_Solaris)->newDecoder()));
 }

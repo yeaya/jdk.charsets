@@ -95,6 +95,7 @@ void CurrencyFormat::main($StringArray* args) {
 }
 
 void CurrencyFormat::testFormatting() {
+	$useLocalCurrentObjectStackCache();
 	bool failed = false;
 		$init($Locale);
 	$var($LocaleArray, locales, $new($LocaleArray, {
@@ -247,6 +248,7 @@ void CurrencyFormat::testFormatting() {
 }
 
 void CurrencyFormat::testSymbols() {
+	$useLocalCurrentObjectStackCache();
 	$init(CurrencyFormat);
 	if (!CurrencyFormat::isCompat) {
 		return;

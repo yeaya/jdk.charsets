@@ -70,6 +70,7 @@ void PCK$EncodeHolder::init$() {
 }
 
 void clinit$PCK$EncodeHolder($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(PCK$EncodeHolder::c2b, $new($chars, 25344));
 	$assignStatic(PCK$EncodeHolder::c2bIndex, $new($chars, 256));
 	{

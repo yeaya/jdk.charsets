@@ -147,6 +147,7 @@ int32_t EUC_TW$Encoder::toEUC(char16_t c, $bytes* bb) {
 }
 
 $CoderResult* EUC_TW$Encoder::encodeArrayLoop($CharBuffer* src, $ByteBuffer* dst) {
+	$useLocalCurrentObjectStackCache();
 	$var($chars, sa, $cast($chars, $nc(src)->array()));
 	int32_t var$0 = src->arrayOffset();
 	int32_t sp = var$0 + src->position();
@@ -231,6 +232,7 @@ $CoderResult* EUC_TW$Encoder::encodeArrayLoop($CharBuffer* src, $ByteBuffer* dst
 }
 
 $CoderResult* EUC_TW$Encoder::encodeBufferLoop($CharBuffer* src, $ByteBuffer* dst) {
+	$useLocalCurrentObjectStackCache();
 	int32_t outSize = 0;
 	int32_t inSize = 0;
 	int32_t mark = $nc(src)->position();
@@ -364,6 +366,7 @@ int32_t EUC_TW$Encoder::encode(char16_t c, $bytes* bb) {
 }
 
 void clinit$EUC_TW$Encoder($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	{
 		int32_t b1Min = $EUC_TW$Decoder::b1Min;
 		int32_t b1Max = $EUC_TW$Decoder::b1Max;

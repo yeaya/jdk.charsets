@@ -107,6 +107,7 @@ bool SimpleEUCEncoder::canEncode(char16_t ch) {
 }
 
 $CoderResult* SimpleEUCEncoder::encodeArrayLoop($CharBuffer* src, $ByteBuffer* dst) {
+	$useLocalCurrentObjectStackCache();
 	$var($chars, sa, $cast($chars, $nc(src)->array()));
 	int32_t var$0 = src->arrayOffset();
 	int32_t sp = var$0 + src->position();
@@ -213,6 +214,7 @@ $CoderResult* SimpleEUCEncoder::encodeArrayLoop($CharBuffer* src, $ByteBuffer* d
 }
 
 $CoderResult* SimpleEUCEncoder::encodeBufferLoop($CharBuffer* src, $ByteBuffer* dst) {
+	$useLocalCurrentObjectStackCache();
 	int32_t index = 0;
 	int32_t spaceNeeded = 0;
 	int32_t i = 0;

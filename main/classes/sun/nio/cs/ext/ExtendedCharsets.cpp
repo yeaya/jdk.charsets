@@ -48,6 +48,7 @@ $Object* allocate$ExtendedCharsets($Class* clazz) {
 $volatile(ExtendedCharsets*) ExtendedCharsets::instance = nullptr;
 
 void ExtendedCharsets::init$() {
+	$useLocalCurrentObjectStackCache();
 	$AbstractCharsetProvider::init$("sun.nio.cs.ext"_s);
 	charset("Big5"_s, "Big5"_s, $$new($StringArray, {"csBig5"_s}));
 	charset("x-EUC-TW"_s, "EUC_TW"_s, $$new($StringArray, {

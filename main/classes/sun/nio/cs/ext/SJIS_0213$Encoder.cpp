@@ -132,6 +132,7 @@ bool SJIS_0213$Encoder::isCompositeBase(char16_t ch) {
 }
 
 $CoderResult* SJIS_0213$Encoder::encodeArrayLoop($CharBuffer* src, $ByteBuffer* dst) {
+	$useLocalCurrentObjectStackCache();
 	$var($chars, sa, $cast($chars, $nc(src)->array()));
 	int32_t var$0 = src->arrayOffset();
 	int32_t sp = var$0 + src->position();
@@ -254,6 +255,7 @@ $CoderResult* SJIS_0213$Encoder::encodeArrayLoop($CharBuffer* src, $ByteBuffer* 
 }
 
 $CoderResult* SJIS_0213$Encoder::encodeBufferLoop($CharBuffer* src, $ByteBuffer* dst) {
+	$useLocalCurrentObjectStackCache();
 	int32_t mark = $nc(src)->position();
 	{
 		$var($Throwable, var$0, nullptr);

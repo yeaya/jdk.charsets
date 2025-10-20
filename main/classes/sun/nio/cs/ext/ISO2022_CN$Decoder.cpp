@@ -129,6 +129,7 @@ char16_t ISO2022_CN$Decoder::SODecode(int8_t byte1, int8_t byte2, int8_t SOD) {
 }
 
 $CoderResult* ISO2022_CN$Decoder::decodeBufferLoop($ByteBuffer* src, $CharBuffer* dst) {
+	$useLocalCurrentObjectStackCache();
 	int32_t mark = $nc(src)->position();
 	int8_t b1 = 0;
 	int8_t b2 = 0;
@@ -318,6 +319,7 @@ $CoderResult* ISO2022_CN$Decoder::decodeBufferLoop($ByteBuffer* src, $CharBuffer
 }
 
 $CoderResult* ISO2022_CN$Decoder::decodeArrayLoop($ByteBuffer* src, $CharBuffer* dst) {
+	$useLocalCurrentObjectStackCache();
 	int32_t inputSize = 0;
 	int8_t b1 = 0;
 	int8_t b2 = 0;

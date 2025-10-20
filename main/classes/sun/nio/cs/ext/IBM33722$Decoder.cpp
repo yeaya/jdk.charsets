@@ -95,6 +95,7 @@ void IBM33722$Decoder::init$($Charset* cs) {
 }
 
 $CoderResult* IBM33722$Decoder::decodeArrayLoop($ByteBuffer* src, $CharBuffer* dst) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, sa, $cast($bytes, $nc(src)->array()));
 	int32_t var$0 = src->arrayOffset();
 	int32_t sp = var$0 + src->position();
@@ -209,6 +210,7 @@ $CoderResult* IBM33722$Decoder::decodeArrayLoop($ByteBuffer* src, $CharBuffer* d
 }
 
 $CoderResult* IBM33722$Decoder::decodeBufferLoop($ByteBuffer* src, $CharBuffer* dst) {
+	$useLocalCurrentObjectStackCache();
 	int32_t mark = $nc(src)->position();
 	{
 		$var($Throwable, var$0, nullptr);

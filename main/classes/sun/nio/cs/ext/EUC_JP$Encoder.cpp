@@ -153,6 +153,7 @@ int32_t EUC_JP$Encoder::encodeDouble(char16_t ch) {
 }
 
 $CoderResult* EUC_JP$Encoder::encodeArrayLoop($CharBuffer* src, $ByteBuffer* dst) {
+	$useLocalCurrentObjectStackCache();
 	$var($chars, sa, $cast($chars, $nc(src)->array()));
 	int32_t var$0 = src->arrayOffset();
 	int32_t sp = var$0 + src->position();
@@ -237,6 +238,7 @@ $CoderResult* EUC_JP$Encoder::encodeArrayLoop($CharBuffer* src, $ByteBuffer* dst
 }
 
 $CoderResult* EUC_JP$Encoder::encodeBufferLoop($CharBuffer* src, $ByteBuffer* dst) {
+	$useLocalCurrentObjectStackCache();
 	int32_t outputSize = 0;
 	$var($bytes, outputByte, nullptr);
 	int32_t inputSize = 0;
@@ -320,6 +322,7 @@ $CoderResult* EUC_JP$Encoder::encodeLoop($CharBuffer* src, $ByteBuffer* dst) {
 }
 
 void clinit$EUC_JP$Encoder($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(EUC_JP$Encoder::ENC0201, $cast($SingleByte$Encoder, $$new($JIS_X_0201)->newEncoder()));
 	$assignStatic(EUC_JP$Encoder::ENC0208, $cast($DoubleByte$Encoder, $$new($JIS_X_0208)->newEncoder()));
 	$assignStatic(EUC_JP$Encoder::ENC0212, $cast($DoubleByte$Encoder, $$new($JIS_X_0212)->newEncoder()));

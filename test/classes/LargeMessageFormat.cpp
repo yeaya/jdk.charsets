@@ -70,6 +70,7 @@ void LargeMessageFormat::init$() {
 }
 
 void LargeMessageFormat::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($Locale, reservedLocale, $Locale::getDefault());
 	$var($TimeZone, reservedTimeZone, $TimeZone::getDefault());
 	{
@@ -92,6 +93,7 @@ void LargeMessageFormat::main($StringArray* args) {
 }
 
 void LargeMessageFormat::testFormat() {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, sample, $new($ObjectArray, {
 		$($of($Integer::valueOf(0))),
 		$of("hello"_s),
@@ -136,6 +138,7 @@ void LargeMessageFormat::testFormat() {
 }
 
 void LargeMessageFormat::testParse() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuffer, parseTemplate, $new($StringBuffer));
 	$var($StringBuffer, parseInput, $new($StringBuffer));
 	for (int32_t i = 0; i < LargeMessageFormat::REPEATS; ++i) {

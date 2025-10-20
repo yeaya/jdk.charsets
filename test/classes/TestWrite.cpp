@@ -48,6 +48,7 @@ void TestWrite::init$() {
 }
 
 void TestWrite::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($ByteArrayOutputStream, bos, nullptr);
 	$var($OutputStreamWriter, osw, nullptr);
 	$var($bytes, array, nullptr);

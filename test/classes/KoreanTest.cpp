@@ -87,6 +87,7 @@ void KoreanTest::run() {
 }
 
 void KoreanTest::doCompare($StringArray2* s) {
+	$useLocalCurrentObjectStackCache();
 	int32_t value = 0;
 	for (int32_t i = 0; i < $nc(s)->length; ++i) {
 		if ((value = $nc(this->col)->compare($nc(s->get(i))->get(0), $nc(s->get(i))->get(1))) > -1) {
@@ -98,6 +99,7 @@ void KoreanTest::doCompare($StringArray2* s) {
 }
 
 void KoreanTest::doEquals($StringArray2* s) {
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < $nc(s)->length; ++i) {
 		if (!$nc(this->col)->equals($nc(s->get(i))->get(0), $nc(s->get(i))->get(1))) {
 			++this->result;
@@ -108,6 +110,7 @@ void KoreanTest::doEquals($StringArray2* s) {
 }
 
 void clinit$KoreanTest($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(KoreanTest::compData1, $new($StringArray2, {
 		$$new($StringArray, {
 			u"\uace0\uc591\uc774"_s,

@@ -43,6 +43,7 @@ void TestPeruCurrencyFormat::init$() {
 }
 
 void TestPeruCurrencyFormat::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, expected, "S/.1,234.56"_s);
 	$var($NumberFormat, currencyFmt, $NumberFormat::getCurrencyInstance($$new($Locale, "es"_s, "PE"_s)));
 	$var($String, s, $nc(currencyFmt)->format(1234.56));

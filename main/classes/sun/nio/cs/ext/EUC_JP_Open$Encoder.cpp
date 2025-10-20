@@ -92,6 +92,7 @@ int32_t EUC_JP_Open$Encoder::encodeDouble(char16_t ch) {
 }
 
 void clinit$EUC_JP_Open$Encoder($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(EUC_JP_Open$Encoder::ENC0208_Solaris, $cast($DoubleByte$Encoder, $$new($JIS_X_0208_Solaris)->newEncoder()));
 	$assignStatic(EUC_JP_Open$Encoder::ENC0212_Solaris, $cast($DoubleByte$Encoder, $$new($JIS_X_0212_Solaris)->newEncoder()));
 }

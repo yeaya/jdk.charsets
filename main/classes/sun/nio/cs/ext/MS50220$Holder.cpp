@@ -81,6 +81,7 @@ void MS50220$Holder::init$() {
 }
 
 void clinit$MS50220$Holder($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(MS50220$Holder::DEC0208, $cast($DoubleByte$Decoder, $$new($JIS_X_0208_MS5022X)->newDecoder()));
 	$assignStatic(MS50220$Holder::DEC0212, $cast($DoubleByte$Decoder, $$new($JIS_X_0212_MS5022X)->newDecoder()));
 	$assignStatic(MS50220$Holder::ENC0208, $cast($DoubleByte$Encoder, $$new($JIS_X_0208_MS5022X)->newEncoder()));

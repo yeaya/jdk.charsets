@@ -144,6 +144,7 @@ void ISO2022$Encoder::implReset() {
 }
 
 int32_t ISO2022$Encoder::unicodeToNative(char16_t unicode, $bytes* ebyte) {
+	$useLocalCurrentObjectStackCache();
 	int32_t index = 0;
 	$var($chars, convChar, $new($chars, {unicode}));
 	$var($bytes, convByte, $new($bytes, 4));
@@ -200,6 +201,7 @@ int32_t ISO2022$Encoder::unicodeToNative(char16_t unicode, $bytes* ebyte) {
 }
 
 $CoderResult* ISO2022$Encoder::encodeArrayLoop($CharBuffer* src, $ByteBuffer* dst) {
+	$useLocalCurrentObjectStackCache();
 	$var($chars, sa, $cast($chars, $nc(src)->array()));
 	int32_t var$0 = src->arrayOffset();
 	int32_t sp = var$0 + src->position();
@@ -292,6 +294,7 @@ $CoderResult* ISO2022$Encoder::encodeArrayLoop($CharBuffer* src, $ByteBuffer* ds
 }
 
 $CoderResult* ISO2022$Encoder::encodeBufferLoop($CharBuffer* src, $ByteBuffer* dst) {
+	$useLocalCurrentObjectStackCache();
 	int32_t outputSize = 0;
 	$var($bytes, outputByte, $new($bytes, 8));
 	this->newshiftout = this->shiftout;

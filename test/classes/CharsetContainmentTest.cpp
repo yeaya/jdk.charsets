@@ -52,6 +52,7 @@ void CharsetContainmentTest::init$() {
 
 void CharsetContainmentTest::main($StringArray* args) {
 	$init(CharsetContainmentTest);
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < $nc(CharsetContainmentTest::encodings)->length; ++i) {
 		$var($Charset, c, $Charset::forName($nc(CharsetContainmentTest::encodings)->get(i)));
 		for (int32_t j = 0; j < $nc($nc(CharsetContainmentTest::contains)->get(i))->length; ++j) {
@@ -65,6 +66,7 @@ void CharsetContainmentTest::main($StringArray* args) {
 }
 
 void clinit$CharsetContainmentTest($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(CharsetContainmentTest::encodings, $new($StringArray, {
 		"US-ASCII"_s,
 		"UTF-16"_s,

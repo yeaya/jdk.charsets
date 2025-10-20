@@ -70,6 +70,7 @@ void EUC_KR$EncodeHolder::init$() {
 }
 
 void clinit$EUC_KR$EncodeHolder($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(EUC_KR$EncodeHolder::c2b, $new($chars, 0x00009200));
 	$assignStatic(EUC_KR$EncodeHolder::c2bIndex, $new($chars, 256));
 	{

@@ -70,6 +70,7 @@ void IBM933$EncodeHolder::init$() {
 }
 
 void clinit$IBM933$EncodeHolder($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(IBM933$EncodeHolder::c2b, $new($chars, 0x00009B00));
 	$assignStatic(IBM933$EncodeHolder::c2bIndex, $new($chars, 256));
 	{

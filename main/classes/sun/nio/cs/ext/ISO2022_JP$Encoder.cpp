@@ -156,6 +156,7 @@ bool ISO2022_JP$Encoder::canEncode(char16_t c) {
 }
 
 $CoderResult* ISO2022_JP$Encoder::encodeArrayLoop($CharBuffer* src, $ByteBuffer* dst) {
+	$useLocalCurrentObjectStackCache();
 	$var($chars, sa, $cast($chars, $nc(src)->array()));
 	int32_t var$0 = src->arrayOffset();
 	int32_t sp = var$0 + src->position();
@@ -337,6 +338,7 @@ $CoderResult* ISO2022_JP$Encoder::encodeArrayLoop($CharBuffer* src, $ByteBuffer*
 }
 
 $CoderResult* ISO2022_JP$Encoder::encodeBufferLoop($CharBuffer* src, $ByteBuffer* dst) {
+	$useLocalCurrentObjectStackCache();
 	int32_t mark = $nc(src)->position();
 	{
 		$var($Throwable, var$0, nullptr);

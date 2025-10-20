@@ -182,6 +182,7 @@ $String* AbstractCharsetProvider::canonicalize($String* charsetName) {
 }
 
 $Charset* AbstractCharsetProvider::lookup($String* csn) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($SoftReference, sr, $cast($SoftReference, $nc(this->cache)->get(csn)));
 	if (sr != nullptr) {
@@ -221,6 +222,7 @@ $Charset* AbstractCharsetProvider::charsetForName($String* charsetName) {
 }
 
 $Iterator* AbstractCharsetProvider::charsets() {
+	$useLocalCurrentObjectStackCache();
 	$var($ArrayList, ks, nullptr);
 	$synchronized(this) {
 		init();

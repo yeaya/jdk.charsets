@@ -180,6 +180,7 @@ $CoderResult* JISAutoDetect$Decoder::decodeLoop($DelegatableDecoder* decoder, $B
 }
 
 $CoderResult* JISAutoDetect$Decoder::decodeLoop($ByteBuffer* src, $CharBuffer* dst) {
+	$useLocalCurrentObjectStackCache();
 	if (this->detectedDecoder == nullptr) {
 		copyLeadingASCII(src, dst);
 		if (!$nc(src)->hasRemaining()) {

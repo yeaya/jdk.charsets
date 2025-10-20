@@ -75,6 +75,7 @@ void MSISO2022JP$CoderHolder::init$() {
 }
 
 void clinit$MSISO2022JP$CoderHolder($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(MSISO2022JP$CoderHolder::DEC0208, $cast($DoubleByte$Decoder, $$new($JIS_X_0208_MS932)->newDecoder()));
 	$assignStatic(MSISO2022JP$CoderHolder::ENC0208, $cast($DoubleByte$Encoder, $$new($JIS_X_0208_MS932)->newEncoder()));
 }

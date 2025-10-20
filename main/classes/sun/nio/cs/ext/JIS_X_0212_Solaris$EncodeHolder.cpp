@@ -70,6 +70,7 @@ void JIS_X_0212_Solaris$EncodeHolder::init$() {
 }
 
 void clinit$JIS_X_0212_Solaris$EncodeHolder($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(JIS_X_0212_Solaris$EncodeHolder::c2b, $new($chars, 23808));
 	$assignStatic(JIS_X_0212_Solaris$EncodeHolder::c2bIndex, $new($chars, 256));
 	{

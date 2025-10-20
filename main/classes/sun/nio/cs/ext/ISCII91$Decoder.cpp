@@ -108,6 +108,7 @@ $CoderResult* ISCII91$Decoder::implFlush($CharBuffer* out) {
 }
 
 $CoderResult* ISCII91$Decoder::decodeArrayLoop($ByteBuffer* src, $CharBuffer* dst) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, sa, $cast($bytes, $nc(src)->array()));
 	int32_t var$0 = src->arrayOffset();
 	int32_t sp = var$0 + src->position();
@@ -330,6 +331,7 @@ $CoderResult* ISCII91$Decoder::decodeArrayLoop($ByteBuffer* src, $CharBuffer* ds
 }
 
 $CoderResult* ISCII91$Decoder::decodeBufferLoop($ByteBuffer* src, $CharBuffer* dst) {
+	$useLocalCurrentObjectStackCache();
 	int32_t mark = $nc(src)->position();
 	{
 		$var($Throwable, var$0, nullptr);

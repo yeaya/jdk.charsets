@@ -70,6 +70,7 @@ void JIS_X_0212$EncodeHolder::init$() {
 }
 
 void clinit$JIS_X_0212$EncodeHolder($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(JIS_X_0212$EncodeHolder::c2b, $new($chars, 23040));
 	$assignStatic(JIS_X_0212$EncodeHolder::c2bIndex, $new($chars, 256));
 	{

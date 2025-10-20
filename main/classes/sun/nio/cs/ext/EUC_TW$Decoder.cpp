@@ -153,6 +153,7 @@ $chars* EUC_TW$Decoder::decode(int32_t b1, int32_t b2, int32_t p, $chars* c1, $c
 }
 
 $CoderResult* EUC_TW$Decoder::decodeArrayLoop($ByteBuffer* src, $CharBuffer* dst) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, sa, $cast($bytes, $nc(src)->array()));
 	int32_t var$0 = src->arrayOffset();
 	int32_t sp = var$0 + src->position();
@@ -270,6 +271,7 @@ $CoderResult* EUC_TW$Decoder::decodeArrayLoop($ByteBuffer* src, $CharBuffer* dst
 }
 
 $CoderResult* EUC_TW$Decoder::decodeBufferLoop($ByteBuffer* src, $CharBuffer* dst) {
+	$useLocalCurrentObjectStackCache();
 	int32_t mark = $nc(src)->position();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -386,6 +388,7 @@ $CoderResult* EUC_TW$Decoder::decodeLoop($ByteBuffer* src, $CharBuffer* dst) {
 }
 
 void clinit$EUC_TW$Decoder($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$init($EUC_TWMapping);
 	$assignStatic(EUC_TW$Decoder::b2c, $EUC_TWMapping::b2c);
 	$assignStatic(EUC_TW$Decoder::cnspToIndex, $new($bytes, 256));

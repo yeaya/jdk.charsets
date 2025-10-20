@@ -67,6 +67,7 @@ void bug4117335::init$() {
 
 void bug4117335::main($StringArray* args) {
 	$init(bug4117335);
+	$useLocalCurrentObjectStackCache();
 	$init($Locale);
 	$var($DateFormatSymbols, symbols, $new($DateFormatSymbols, $Locale::JAPAN));
 	$var($StringArray, eras, symbols->getEras());

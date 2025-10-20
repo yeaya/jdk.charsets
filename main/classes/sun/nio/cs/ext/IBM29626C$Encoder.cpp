@@ -210,6 +210,7 @@ int32_t IBM29626C$Encoder::encodeDouble(char16_t ch) {
 }
 
 $CoderResult* IBM29626C$Encoder::encodeArrayLoop($CharBuffer* src, $ByteBuffer* dst) {
+	$useLocalCurrentObjectStackCache();
 	$var($chars, sa, $cast($chars, $nc(src)->array()));
 	int32_t var$0 = src->arrayOffset();
 	int32_t sp = var$0 + src->position();
@@ -294,6 +295,7 @@ $CoderResult* IBM29626C$Encoder::encodeArrayLoop($CharBuffer* src, $ByteBuffer* 
 }
 
 $CoderResult* IBM29626C$Encoder::encodeBufferLoop($CharBuffer* src, $ByteBuffer* dst) {
+	$useLocalCurrentObjectStackCache();
 	int32_t outputSize = 0;
 	$var($bytes, outputByte, nullptr);
 	int32_t inputSize = 0;
@@ -377,6 +379,7 @@ $CoderResult* IBM29626C$Encoder::encodeLoop($CharBuffer* src, $ByteBuffer* dst) 
 }
 
 void clinit$IBM29626C$Encoder($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(IBM29626C$Encoder::G2_c, u"\u2015\u2211\u221f\u2225\u222e\u22bf\u2460\u2461\u2462\u2463\u2464\u2465\u2466\u2467\u2468\u2469\u246a\u246b\u246c\u246d\u246e\u246f\u2470\u2471\u2472\u2473\u301d\u301f\u3232\u3239\u32a4\u32a5\u32a6\u32a7\u32a8\u3303\u330d\u3314\u3318\u3322\u3323\u3326\u3327\u332b\u3336\u333b\u3349\u334a\u334d\u3351\u3357\u337b\u337c\u337d\u337e\u338e\u338f\u339c\u339d\u339e\u33a1\u33c4\u33cd\u4fe0\u525d\u555e\u5699\u56ca\u5861\u5c5b\u5c62\u6414\u6451\u6522\u6805\u688e\u6f51\u7006\u7130\u7626\u79b1\u7c1e\u7e48\u7e61\u7e6b\u8141\u8346\u840a\u8523\u87ec\u881f\u8ec0\u91ac\u91b1\u9830\u9839\u985a\u9a52\u9dd7\u9e7c\u9eb4\u9eb5\uff0d\uff5e\uffe0\uffe1\uffe2"_s);
 	$assignStatic(IBM29626C$Encoder::G2_b, $cstr({0xA1BD, 0xADF4, 0xADF8, 0xA1C2, 0xADF3, 0xADF9, 0xADA1, 0xADA2, 0xADA3, 0xADA4, 0xADA5, 0xADA6, 0xADA7, 0xADA8, 0xADA9, 0xADAA, 0xADAB, 0xADAC, 0xADAD, 0xADAE, 0xADAF, 0xADB0, 0xADB1, 0xADB2, 0xADB3, 0xADB4, 0xADE0, 0xADE1, 0xADEB, 0xADEC, 0xADE5, 0xADE6, 0xADE7, 0xADE8, 0xADE9, 0xADC6, 0xADCA, 0xADC1, 0xADC4, 0xADC2, 0xADCC, 0xADCB, 0xADC5, 0xADCD, 0xADC7, 0xADCF, 0xADC0, 0xADCE, 0xADC3, 0xADC8, 0xADC9, 0xADDF, 0xADEF, 0xADEE, 0xADED, 0xADD3, 0xADD4, 0xADD0, 0xADD1, 0xADD2, 0xADD6, 0xADD5, 0xADE3, 0xB6A2, 0xC7ED, 0xB0A2, 0xB3FA, 0xC7B9, 0xC5B6, 0xD6A2, 0xBCC8, 0xC1DF, 0xC4CF, 0xDAB9, 0xBAF4, 0xDBF4, 0xC8AE, 0xC6C2, 0xB1EB, 0xC1E9, 0xC5F8, 0xC3BD, 0xE5DA, 0xBDAB, 0xB7D2, 0xE7A6, 0xB7D5, 0xCDE9, 0xBED5, 0xC0E6, 0xCFB9, 0xB6ED, 0xBEDF, 0xC8B0, 0xCBCB, 0xF0F8, 0xC5BF, 0xC2CD, 0xB2AA, 0xB8B4, 0xB9ED, 0xCCCD, 0xA1DD, 0xA1C1, 0xA1F1, 0xA1F2, 0xA2CC}));
 	$assignStatic(IBM29626C$Encoder::G3_c, u"\u2116\u2121\u2160\u2161\u2162\u2163\u2164\u2165\u2166\u2167\u2168\u2169\u2170\u2171\u2172\u2173\u2174\u2175\u2176\u2177\u2178\u2179\u3231\u4efc\u50f4\u51ec\u5307\u5324\u548a\u5759\u589e\u5bec\u5cf5\u5d53\u5fb7\u6085\u6120\u654e\u663b\u6665\u6801\u6a6b\u6ae2\u6df2\u6df8\u7028\u70bb\u7501\u7682\u769e\u7930\u7ae7\u7da0\u7dd6\u8362\u85b0\u8807\u8b7f\u8cf4\u8d76\u90de\u9115\u9592\u973b\u974d\u9751\u999e\u9ad9\u9b72\u9ed1\uf86f\uf929\uf9dc\ufa0e\ufa0f\ufa10\ufa11\ufa12\ufa13\ufa14\ufa15\ufa16\ufa17\ufa18\ufa19\ufa1a\ufa1b\ufa1c\ufa1d\ufa1e\ufa1f\ufa20\ufa21\ufa22\ufa23\ufa24\ufa25\ufa26\ufa27\ufa28\ufa29\ufa2a\ufa2b\ufa2c\ufa2d\uff02\uff07\uffe4"_s);

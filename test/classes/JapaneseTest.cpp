@@ -98,6 +98,7 @@ void JapaneseTest::main($StringArray* args) {
 }
 
 void JapaneseTest::run() {
+	$useLocalCurrentObjectStackCache();
 	$var($LocaleArray, locales, $new($LocaleArray, {$($Locale::getDefault())}));
 	for (int32_t l = 0; l < locales->length; ++l) {
 		$Locale::setDefault(locales->get(l));
@@ -120,6 +121,7 @@ void JapaneseTest::run() {
 }
 
 void JapaneseTest::doCompare($StringArray2* s, int32_t expectedValue, int32_t strength, int32_t decomp) {
+	$useLocalCurrentObjectStackCache();
 	int32_t value = 0;
 	for (int32_t i = 0; i < $nc(s)->length; ++i) {
 		if ((value = $nc(this->col)->compare($nc(s->get(i))->get(0), $nc(s->get(i))->get(1))) != expectedValue) {
@@ -131,6 +133,7 @@ void JapaneseTest::doCompare($StringArray2* s, int32_t expectedValue, int32_t st
 }
 
 void clinit$JapaneseTest($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(JapaneseTest::results1, $new($intArray2, {
 		$$new($ints, {
 			-1,

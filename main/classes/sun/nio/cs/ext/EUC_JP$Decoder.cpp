@@ -149,6 +149,7 @@ char16_t EUC_JP$Decoder::decodeDouble(int32_t byte1, int32_t byte2) {
 }
 
 $CoderResult* EUC_JP$Decoder::decodeArrayLoop($ByteBuffer* src, $CharBuffer* dst) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, sa, $cast($bytes, $nc(src)->array()));
 	int32_t var$0 = src->arrayOffset();
 	int32_t sp = var$0 + src->position();
@@ -235,6 +236,7 @@ $CoderResult* EUC_JP$Decoder::decodeArrayLoop($ByteBuffer* src, $CharBuffer* dst
 }
 
 $CoderResult* EUC_JP$Decoder::decodeBufferLoop($ByteBuffer* src, $CharBuffer* dst) {
+	$useLocalCurrentObjectStackCache();
 	int32_t mark = $nc(src)->position();
 	int32_t b1 = 0;
 	int32_t b2 = 0;
@@ -328,6 +330,7 @@ $CoderResult* EUC_JP$Decoder::implFlush($CharBuffer* out) {
 }
 
 void clinit$EUC_JP$Decoder($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(EUC_JP$Decoder::DEC0201, $cast($SingleByte$Decoder, $$new($JIS_X_0201)->newDecoder()));
 	$assignStatic(EUC_JP$Decoder::DEC0208, $cast($DoubleByte$Decoder, $$new($JIS_X_0208)->newDecoder()));
 	$assignStatic(EUC_JP$Decoder::DEC0212, $cast($DoubleByte$Decoder, $$new($JIS_X_0212)->newDecoder()));

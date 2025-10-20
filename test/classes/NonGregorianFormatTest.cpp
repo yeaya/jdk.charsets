@@ -99,6 +99,7 @@ void NonGregorianFormatTest::init$() {
 
 void NonGregorianFormatTest::main($StringArray* args) {
 	$init(NonGregorianFormatTest);
+	$useLocalCurrentObjectStackCache();
 	$var($Locale, defaultLocale, $Locale::getDefault());
 	$var($LocaleArray, locales, $new($LocaleArray, {
 		$Locale::ENGLISH,
@@ -146,6 +147,7 @@ void NonGregorianFormatTest::test($Locale* locale) {
 
 void NonGregorianFormatTest::testRoundTrip($Locale* calendarLocale) {
 	$init(NonGregorianFormatTest);
+	$useLocalCurrentObjectStackCache();
 	$var($DateFormat, df, $DateFormat::getDateTimeInstance($DateFormat::FULL, $DateFormat::FULL, calendarLocale));
 	int64_t t = $System::currentTimeMillis();
 	t = (t / 1000) * 1000;
@@ -156,6 +158,7 @@ void NonGregorianFormatTest::testRoundTrip($Locale* calendarLocale) {
 
 void NonGregorianFormatTest::testRoundTrip($DateFormat* df, $Date* orig) {
 	$init(NonGregorianFormatTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($String, s, $nc(df)->format(orig));
 		$var($Date, parsed, df->parse(s));
@@ -173,6 +176,7 @@ void NonGregorianFormatTest::testRoundTrip($DateFormat* df, $Date* orig) {
 
 void NonGregorianFormatTest::testRoundTripSimple($Locale* calendarLocale, $ObjectArray2* data) {
 	$init(NonGregorianFormatTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		{
 			$var($ObjectArray2, arr$, data);
@@ -212,6 +216,7 @@ void NonGregorianFormatTest::testRoundTripSimple($Locale* calendarLocale, $Objec
 
 void NonGregorianFormatTest::testParseExceptions($Locale* calendarLocale, $ObjectArray2* data) {
 	$init(NonGregorianFormatTest);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($ObjectArray2, arr$, data);
 		int32_t len$ = $nc(arr$)->length;
@@ -251,6 +256,7 @@ void NonGregorianFormatTest::error($String* fmt, $ObjectArray* args) {
 }
 
 void clinit$NonGregorianFormatTest($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(NonGregorianFormatTest::FULL_DATE_FORMAT_JA, u"GGGGyyyy\'\u5e74\'M\'\u6708\'d\'\u65e5\'"_s);
 	$assignStatic(NonGregorianFormatTest::JAPANESE_EN, $new($ObjectArray2, {
 		$$new($ObjectArray, {
