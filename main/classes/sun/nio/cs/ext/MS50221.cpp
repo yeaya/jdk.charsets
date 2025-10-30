@@ -1,12 +1,5 @@
 #include <sun/nio/cs/ext/MS50221.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/charset/Charset.h>
 #include <sun/nio/cs/ext/ExtendedCharsets.h>
 #include <sun/nio/cs/ext/JIS_X_0212.h>

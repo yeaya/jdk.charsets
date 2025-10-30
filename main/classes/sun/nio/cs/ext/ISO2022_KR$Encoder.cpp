@@ -1,15 +1,5 @@
 #include <sun/nio/cs/ext/ISO2022_KR$Encoder.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/CharsetEncoder.h>
 #include <sun/nio/cs/ext/ISO2022$Encoder.h>
@@ -80,8 +70,7 @@ void ISO2022_KR$Encoder::init$($Charset* cs) {
 	try {
 		$init($ISO2022_KR$Holder);
 		$set(this, ISOEncoder, $nc($ISO2022_KR$Holder::ksc5601_cs)->newEncoder());
-	} catch ($Exception&) {
-		$catch();
+	} catch ($Exception& e) {
 	}
 }
 

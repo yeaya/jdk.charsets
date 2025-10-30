@@ -1,21 +1,7 @@
 #include <LargeMessageFormat.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Double.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Number.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
 #include <java/lang/StringBuffer.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/MessageFormat.h>
 #include <java/util/Date.h>
 #include <java/util/Locale.h>
@@ -80,8 +66,8 @@ void LargeMessageFormat::main($StringArray* args) {
 			$TimeZone::setDefault($($TimeZone::getTimeZone("Europe/Berlin"_s)));
 			testFormat();
 			testParse();
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$Locale::setDefault(reservedLocale);
 			$TimeZone::setDefault(reservedTimeZone);
@@ -126,7 +112,6 @@ void LargeMessageFormat::testFormat() {
 	$var($MessageFormat, format, $new($MessageFormat, $(template$->toString())));
 	$var($String, result, format->format(arguments));
 	if (!$nc(result)->equals($(expected->toString()))) {
-		$init($System);
 		$nc($System::out)->println("Template:"_s);
 		$nc($System::out)->println($of(template$));
 		$nc($System::out)->println("Expected result: "_s);

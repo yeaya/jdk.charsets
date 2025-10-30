@@ -1,16 +1,5 @@
 #include <bug4117335.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/DateFormatSymbols.h>
 #include <java/util/Locale.h>
 #include <jcpp.h>
@@ -71,7 +60,6 @@ void bug4117335::main($StringArray* args) {
 	$init($Locale);
 	$var($DateFormatSymbols, symbols, $new($DateFormatSymbols, $Locale::JAPAN));
 	$var($StringArray, eras, symbols->getEras());
-	$init($System);
 	$nc($System::out)->println($$str({"BC = "_s, $nc(eras)->get(0)}));
 	if (!$nc($nc(eras)->get(0))->equals(bug4117335::bc)) {
 		$nc($System::out)->println($$str({"*** Should have been "_s, bug4117335::bc}));

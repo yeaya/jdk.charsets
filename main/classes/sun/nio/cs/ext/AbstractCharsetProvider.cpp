@@ -1,20 +1,11 @@
 #include <sun/nio/cs/ext/AbstractCharsetProvider.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalAccessException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InstantiationException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/ref/SoftReference.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/spi/CharsetProvider.h>
 #include <java/util/AbstractMap.h>
@@ -112,7 +103,6 @@ bool AbstractCharsetProvider::$assertionsDisabled = false;
 
 void AbstractCharsetProvider::init$() {
 	$CharsetProvider::init$();
-	$init($String);
 	$set(this, classMap, static_cast<$Map*>(static_cast<$AbstractMap*>($new($TreeMap, $String::CASE_INSENSITIVE_ORDER))));
 	$set(this, aliasMap, static_cast<$Map*>(static_cast<$AbstractMap*>($new($TreeMap, $String::CASE_INSENSITIVE_ORDER))));
 	$set(this, aliasNameMap, static_cast<$Map*>(static_cast<$AbstractMap*>($new($TreeMap, $String::CASE_INSENSITIVE_ORDER))));
@@ -122,7 +112,6 @@ void AbstractCharsetProvider::init$() {
 
 void AbstractCharsetProvider::init$($String* pkgPrefixName) {
 	$CharsetProvider::init$();
-	$init($String);
 	$set(this, classMap, static_cast<$Map*>(static_cast<$AbstractMap*>($new($TreeMap, $String::CASE_INSENSITIVE_ORDER))));
 	$set(this, aliasMap, static_cast<$Map*>(static_cast<$AbstractMap*>($new($TreeMap, $String::CASE_INSENSITIVE_ORDER))));
 	$set(this, aliasNameMap, static_cast<$Map*>(static_cast<$AbstractMap*>($new($TreeMap, $String::CASE_INSENSITIVE_ORDER))));
@@ -201,14 +190,11 @@ $Charset* AbstractCharsetProvider::lookup($String* csn) {
 		$var($Charset, cs, $cast($Charset, $nc(c)->newInstance()));
 		$nc(this->cache)->put(csn, $$new($SoftReference, cs));
 		return cs;
-	} catch ($ClassNotFoundException&) {
-		$var($ClassNotFoundException, x, $catch());
+	} catch ($ClassNotFoundException& x) {
 		return nullptr;
-	} catch ($IllegalAccessException&) {
-		$var($IllegalAccessException, x, $catch());
+	} catch ($IllegalAccessException& x) {
 		return nullptr;
-	} catch ($InstantiationException&) {
-		$var($InstantiationException, x, $catch());
+	} catch ($InstantiationException& x) {
 		return nullptr;
 	}
 	$shouldNotReachHere();

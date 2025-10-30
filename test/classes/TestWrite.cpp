@@ -3,17 +3,7 @@
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/io/OutputStreamWriter.h>
-#include <java/io/PrintStream.h>
 #include <java/io/UnsupportedEncodingException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
@@ -61,9 +51,7 @@ void TestWrite::main($StringArray* args) {
 		}
 		osw->close();
 		$assign(array, bos->toByteArray());
-	} catch ($UnsupportedEncodingException&) {
-		$var($UnsupportedEncodingException, e, $catch());
-		$init($System);
+	} catch ($UnsupportedEncodingException& e) {
 		$nc($System::err)->println("Unsupported encoding - EUCJIS. ext  may not be properly installed. ext is   required for the test to run properly "_s);
 		$throwNew($Exception, "Environment is incorrect"_s);
 	}

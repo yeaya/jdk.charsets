@@ -1,16 +1,5 @@
 #include <JapaneseTest.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/Collator.h>
 #include <java/util/Locale.h>
 #include <jcpp.h>
@@ -126,7 +115,6 @@ void JapaneseTest::doCompare($StringArray2* s, int32_t expectedValue, int32_t st
 	for (int32_t i = 0; i < $nc(s)->length; ++i) {
 		if ((value = $nc(this->col)->compare($nc(s->get(i))->get(0), $nc(s->get(i))->get(1))) != expectedValue) {
 			++this->result;
-			$init($System);
 			$nc($System::err)->println($$str({$nc(JapaneseTest::strength_name)->get(strength), ": compare() returned unexpected value.("_s, $$str(value), ") on "_s, $nc(JapaneseTest::decomp_name)->get(decomp), "     Expected("_s, $$str(expectedValue), ") for "_s, $nc(s->get(i))->get(2)}));
 		}
 	}

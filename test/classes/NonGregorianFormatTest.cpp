@@ -1,18 +1,5 @@
 #include <NonGregorianFormatTest.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/DateFormat.h>
 #include <java/text/ParseException.h>
 #include <java/text/SimpleDateFormat.h>
@@ -119,8 +106,8 @@ void NonGregorianFormatTest::main($StringArray* args) {
 					}
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$Locale::setDefault(defaultLocale);
 		}
@@ -168,8 +155,7 @@ void NonGregorianFormatTest::testRoundTrip($DateFormat* df, $Date* orig) {
 				$of(parsed)
 			}));
 		}
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		error("Unexpected exception: %s%n"_s, $$new($ObjectArray, {$of(e)}));
 	}
 }
@@ -208,8 +194,7 @@ void NonGregorianFormatTest::testRoundTripSimple($Locale* calendarLocale, $Objec
 				}
 			}
 		}
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		error("Unexpected exception: %s%n"_s, $$new($ObjectArray, {$of(e)}));
 	}
 }
@@ -233,8 +218,7 @@ void NonGregorianFormatTest::testParseExceptions($Locale* calendarLocale, $Objec
 				try {
 					$var($Date, d, sdf->parse(str));
 					error("testParseExceptions: parsing \'%s\' doesn\'t throw a ParseException.%n"_s, $$new($ObjectArray, {$of(str)}));
-				} catch ($ParseException&) {
-					$catch();
+				} catch ($ParseException& e) {
 				}
 			}
 		}
@@ -243,14 +227,12 @@ void NonGregorianFormatTest::testParseExceptions($Locale* calendarLocale, $Objec
 
 void NonGregorianFormatTest::error($String* msg) {
 	$init(NonGregorianFormatTest);
-	$init($System);
 	$nc($System::out)->println(msg);
 	++NonGregorianFormatTest::errors;
 }
 
 void NonGregorianFormatTest::error($String* fmt, $ObjectArray* args) {
 	$init(NonGregorianFormatTest);
-	$init($System);
 	$nc($System::out)->printf(fmt, args);
 	++NonGregorianFormatTest::errors;
 }

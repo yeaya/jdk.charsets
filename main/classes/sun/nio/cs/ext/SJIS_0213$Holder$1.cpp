@@ -1,14 +1,6 @@
 #include <sun/nio/cs/ext/SJIS_0213$Holder$1.h>
 
 #include <java/io/InputStream.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <sun/nio/cs/CharsetMapping.h>
 #include <sun/nio/cs/ext/SJIS_0213.h>
 #include <jcpp.h>

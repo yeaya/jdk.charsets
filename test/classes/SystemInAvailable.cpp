@@ -1,16 +1,6 @@
 #include <SystemInAvailable.h>
 
 #include <java/io/InputStream.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $InputStream = ::java::io::InputStream;
@@ -44,7 +34,6 @@ void SystemInAvailable::init$() {
 void SystemInAvailable::main($StringArray* args) {
 	$useLocalCurrentObjectStackCache();
 	$var($bytes, b, $new($bytes, 1024));
-	$init($System);
 	$nc($System::out)->print("Press <enter>: "_s);
 	$nc($System::out)->flush();
 	$nc($System::in)->read(b);

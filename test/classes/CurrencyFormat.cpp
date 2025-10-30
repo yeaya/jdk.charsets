@@ -3,19 +3,7 @@
 #include <java/io/File.h>
 #include <java/io/FileInputStream.h>
 #include <java/io/InputStream.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Double.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/DecimalFormatSymbols.h>
 #include <java/text/NumberFormat.h>
 #include <java/text/SimpleDateFormat.h>
@@ -97,7 +85,7 @@ void CurrencyFormat::main($StringArray* args) {
 void CurrencyFormat::testFormatting() {
 	$useLocalCurrentObjectStackCache();
 	bool failed = false;
-		$init($Locale);
+	$init($Locale);
 	$var($LocaleArray, locales, $new($LocaleArray, {
 		$Locale::US,
 		$Locale::JAPAN,
@@ -232,7 +220,6 @@ void CurrencyFormat::testFormatting() {
 			$var($String, result, $nc(format)->format(1234.56));
 			if (!$nc(result)->equals(expected)) {
 				failed = true;
-				$init($System);
 				$var($String, var$4, $$str({"FAIL: Locale "_s, locale}));
 				$var($String, var$3, $$concat(var$4, (currency == nullptr ? ", default currency"_s : ($$str({", currency: "_s, currency})))));
 				$var($String, var$2, $$concat(var$3, ", expected: "));
